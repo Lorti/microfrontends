@@ -50,9 +50,9 @@
   </div>
   <div class="mf-header__user">
     {{#unless username}}
-      <a class="mf-header__link" href="/login">Login</a>
+      <a class="mf-header__link" href="/">Login</a>
     {{else}}
-      <a class="mf-header__link" href="/profile">{{ username }}</a>
+      <a class="mf-header__link" href="/{{ username }}">{{ username }}</a>
       <svg class="mf-header__button" viewBox="0 0 17 17" width="30" height="30">
         <ellipse fill-rule="evenodd" clip-rule="evenodd" cx="4.5" cy="4.5" rx="1.2" ry="1.2" fill="currentColor"></ellipse>
         <ellipse fill-rule="evenodd" clip-rule="evenodd" cx="8.5" cy="4.5" rx="1.2" ry="1.2" fill="currentColor"></ellipse>
