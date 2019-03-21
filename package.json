@@ -4,8 +4,9 @@
   "description": "A simple microfrontend architecture for explaining/showcasing the concept",
   "main": "index.js",
   "scripts": {
-    "express": "nodemon app.js",
-    "webpack": "webpack -p --watch"
+    "start": "concurrently \"npm run microfrontend:express\" \"npm run microfrontend:webpack\"",
+    "microfrontend:express": "nodemon index.js",
+    "microfrontend:webpack": "webpack -p --watch"
   },
   "keywords": [],
   "author": "Manuel Wieser <office@manuelwieser.com>",
@@ -15,6 +16,7 @@
     "hbs": "^4.0.3"
   },
   "devDependencies": {
+    "concurrently": "^4.1.0",
     "handlebars": "^4.1.1",
     "handlebars-loader": "^1.7.1",
     "nodemon": "^1.18.10",
