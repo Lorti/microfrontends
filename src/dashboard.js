@@ -26,5 +26,5 @@ export default function(button, container, context) {
   }
 
   button.addEventListener('click', toggleDashboard);
-  document.documentElement.addEventListener('header:update-dashboard', updateListener);
+  window.addEventListener('mf-header:update-dashboard', updateListener);
 }

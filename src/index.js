@@ -1,10 +1,8 @@
-const button = document.querySelector('.header__button');
+const button = document.querySelector('.mf-header__button');
 
 if (button) {
-    const container = document.querySelector('.header__menu');
-    const context = {
-        username: document.querySelector('[href="/profile"]').textContent,
-    };
+    const container = document.querySelector('.mf-header__menu');
+    const context = window.__MF__;
     import(/* webpackChunkName: "dashboard" */ './dashboard').then(({ default: dashboard }) => {
         dashboard(button, container, context);
     });

@@ -1,5 +1,5 @@
 <style>
-  .header {
+  .mf-header {
     position: relative;
     display: flex;
     color: #fff;
@@ -10,17 +10,17 @@
     font-size: 16px; /* Reset */
   }
 
-  .header__list,
-  .header__user {
+  .mf-header__list,
+  .mf-header__user {
     align-items: center;
     display: flex;
   }
 
-  .header__list {
+  .mf-header__list {
     flex-grow: 1;
   }
 
-  .header__link {
+  .mf-header__link {
     margin: 1px 1em -1px;
     font-size: 1em;
     line-height: 1.4;
@@ -29,31 +29,31 @@
     border-bottom: 2px solid transparent;
   }
 
-  .header__link:hover {
+  .mf-header__link:hover {
     border-color: #fff;
   }
 
-  .header__button {
+  .mf-header__button {
     cursor: pointer;
   }
 
-  .header__menu {
+  .mf-header__menu {
     position: relative;
   }
 </style>
-<div class="header">
-  <div class="header__list">
-    <a class="header__link" href="/">Page 1</a>
-    <a class="header__link" href="/">Page 2</a>
-    <a class="header__link" href="/">Page 3</a>
-    <a class="header__link" href="/">Page 4</a>
+<div class="mf-header">
+  <div class="mf-header__list">
+    <a class="mf-header__link" href="/">Page 1</a>
+    <a class="mf-header__link" href="/">Page 2</a>
+    <a class="mf-header__link" href="/">Page 3</a>
+    <a class="mf-header__link" href="/">Page 4</a>
   </div>
-  <div class="header__user">
+  <div class="mf-header__user">
     {{#unless username}}
-      <a class="header__link" href="/login">Login</a>
+      <a class="mf-header__link" href="/login">Login</a>
     {{else}}
-      <a class="header__link" href="/profile">{{ username }}</a>
-      <svg class="header__button" viewBox="0 0 17 17" width="30" height="30">
+      <a class="mf-header__link" href="/profile">{{ username }}</a>
+      <svg class="mf-header__button" viewBox="0 0 17 17" width="30" height="30">
         <ellipse fill-rule="evenodd" clip-rule="evenodd" cx="4.5" cy="4.5" rx="1.2" ry="1.2" fill="currentColor"></ellipse>
         <ellipse fill-rule="evenodd" clip-rule="evenodd" cx="8.5" cy="4.5" rx="1.2" ry="1.2" fill="currentColor"></ellipse>
         <ellipse fill-rule="evenodd" clip-rule="evenodd" cx="12.5" cy="4.5" rx="1.2" ry="1.2" fill="currentColor"></ellipse>
@@ -64,8 +64,13 @@
         <ellipse fill-rule="evenodd" clip-rule="evenodd" cx="8.5" cy="12.5" rx="1.2" ry="1.2" fill="currentColor"></ellipse>
         <ellipse fill-rule="evenodd" clip-rule="evenodd" cx="12.5" cy="12.5" rx="1.2" ry="1.2" fill="currentColor"></ellipse>
       </svg>
-      <div class="header__menu"></div>
+      <div class="mf-header__menu"></div>
     {{/unless}}
   </div>
 </div>
+<script>
+  window.__MF__ = {
+    username: '{{ username }}'
+  }
+</script>
 <script src="{{ baseUrl }}/header.js" defer></script>
