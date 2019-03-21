@@ -4,10 +4,11 @@
   "description": "A simple microfrontend architecture for explaining/showcasing the concept",
   "main": "header.js",
   "scripts": {
-    "start": "concurrently \"npm run application:express\" \"npm run microfrontend:express\" \"npm run microfrontend:webpack\"",
+    "start": "concurrently \"npm run application:express\" \"npm run application:webpack\" \"npm run header:express\" \"npm run header:webpack\"",
     "application:express": "nodemon application.js",
-    "microfrontend:express": "nodemon header.js",
-    "microfrontend:webpack": "webpack -p --watch"
+    "application:webpack": "webpack -p --watch --config webpack.application.config.js",
+    "header:express": "nodemon header.js",
+    "header:webpack": "webpack -p --watch --config webpack.header.config.js"
   },
   "keywords": [],
   "author": "Manuel Wieser <office@manuelwieser.com>",

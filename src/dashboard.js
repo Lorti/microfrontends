@@ -1,30 +1,42 @@
-import template from './dashboard.hbs';
+import template from '../views/dashboard.hbs';
 
-export default function(button, container, context) {
-  let visible = false;
+export default function (button, container, context) {
+    let visible = false;
+    let notifications = {};
 
-  function toggleDashboard(e) {
-    e.stopPropagation();
-    visible = !visible;
-
-    if (visible) {
-      container.innerHTML = template(context);
-      window.addEventListener('click', toggleDashboard);
-      container.addEventListener('click', (e) => {
-        e.stopPropagation();
-      })
-    } else {
-      while (container.firstChild) {
-        container.removeChild(container.firstChild);
-      }
-      window.removeEventListener('click', toggleDashboard);
+    function showDashboard() {
+        container.innerHTML = template(Object.assign({}, context, notifications));
+        window.addEventListener('click', toggleDashboard);
+        container.addEventListener('click', (e) => {
+            e.stopPropagation();
+        })
     }
-  }
-  function updateListener(e) {
-    // TODO
-    console.log(e.detail)
-  }
 
-  button.addEventListener('click', toggleDashboard);
-  window.addEventListener('mf-header:update-dashboard', updateListener);
+    function hideDashboard() {
+        while (container.firstChild) {
+            container.removeChild(container.firstChild);
+        }
+        window.removeEventListener('click', toggleDashboard);
+    }
+
+    function toggleDashboard(e) {
+        e.stopPropagation();
+        visible = !visible;
+
+        if (visible) {
+            showDashboard();
+        } else {
+            hideDashboard();
+        }
+    }
+
+    function updateListener(e) {
+        notifications = e.detail;
+        if (visible) {
+            showDashboard();
+        }
+    }
+
+    button.addEventListener('click', toggleDashboard);
+    window.addEventListener('mf-header:update-notifications', updateListener);
 }

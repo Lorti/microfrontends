@@ -6,4 +6,12 @@ if (button) {
     import(/* webpackChunkName: "dashboard" */ './dashboard').then(({ default: dashboard }) => {
         dashboard(button, container, context);
     });
+
+    window.addEventListener('mf-header:update-notifications', (e) => {
+        if (e.detail.notifications) {
+            button.classList.add('mf-header__button--notification');
+        } else {
+            button.classList.remove('mf-header__button--notification');
+        }
+    });
 }

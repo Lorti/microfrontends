@@ -12,12 +12,5 @@ module.exports = {
       test: /\.hbs$/,
       loader: 'handlebars-loader'
     }]
-  },
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        default: false
-      }
-    }
   }
 };
