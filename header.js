@@ -9,13 +9,13 @@ app.use(express.static('public'));
 app.get('*', function (req, res) {
   if (req.query.vm) {
     const vm = JSON.parse(req.query.vm);
-    res.render('index', vm)
+    res.render('header', vm)
   } else {
-    res.render('index');
+    res.render('header');
   }
 });
 
 app.listen(port, () => {
-  console.log(`http://localhost:${port}`);
-  console.log(`http://localhost:${port}/?vm=%7B%22username%22%3A%22Manuel%22%7D`)
+  console.log(`Serving microfrontend at http://localhost:${port}`);
+  console.log(`Serving microfrontend at http://localhost:${port}/?vm=%7B%22username%22%3A%22Manuel%22%7D`)
 });

@@ -2,10 +2,11 @@
   "name": "microfrontends",
   "version": "1.0.0",
   "description": "A simple microfrontend architecture for explaining/showcasing the concept",
-  "main": "index.js",
+  "main": "header.js",
   "scripts": {
-    "start": "concurrently \"npm run microfrontend:express\" \"npm run microfrontend:webpack\"",
-    "microfrontend:express": "nodemon index.js",
+    "start": "concurrently \"npm run application:express\" \"npm run microfrontend:express\" \"npm run microfrontend:webpack\"",
+    "application:express": "nodemon application.js",
+    "microfrontend:express": "nodemon header.js",
     "microfrontend:webpack": "webpack -p --watch"
   },
   "keywords": [],
@@ -20,6 +21,7 @@
     "handlebars": "^4.1.1",
     "handlebars-loader": "^1.7.1",
     "nodemon": "^1.18.10",
+    "request": "^2.88.0",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
   }
