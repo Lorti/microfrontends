@@ -1,0 +1,24 @@
+{
+  "name": "microfrontends",
+  "version": "1.0.0",
+  "description": "A simple microfrontend architecture for explaining/showcasing the concept",
+  "main": "index.js",
+  "scripts": {
+    "express": "nodemon app.js",
+    "webpack": "webpack -p --watch"
+  },
+  "keywords": [],
+  "author": "Manuel Wieser <office@manuelwieser.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "hbs": "^4.0.3"
+  },
+  "devDependencies": {
+    "handlebars": "^4.1.1",
+    "handlebars-loader": "^1.7.1",
+    "nodemon": "^1.18.10",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  }
+}
