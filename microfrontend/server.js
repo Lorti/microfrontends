@@ -8,7 +8,7 @@ app.use(express.static('public'));
 
 app.get('*', function (req, res) {
     const vm = req.query.vm ? JSON.parse(req.query.vm) : {};
-    res.render('header/index', Object.assign({
+    res.render('index', Object.assign({
         baseUrl: `http://localhost:${port}`
     }, vm));
 });

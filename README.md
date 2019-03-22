@@ -4,12 +4,25 @@ A simple microfrontend architecture for explaining/showcasing the concept
 
 ## Setup
 
-```js
+### Microfrontend
+
+```bash
+cd microfrontend
 npm install
 npm start
 ```
 
-Open <http://localhost:4000/> in your browser, change the microfrontend's view model via <http://localhost:4000/John%20Doe> and toggle notifications.
+This will serve a microfrontend at <http://localhost:3000/>, which you can open in the browser but it won't do a lot on it's own.
+
+### Application
+
+```bash
+cd application
+npm install
+npm start
+```
+
+Open <http://localhost:4000/> in your browser, try to change the microfrontend's view model via <http://localhost:4000/John%20Doe> and toggle notifications.
 
 ## Contributors
 

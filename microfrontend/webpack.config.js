@@ -1,14 +1,13 @@
 const path = require('path');
 
 module.exports = {
-    entry: './src/header/index.js',
+    entry: './src/index.js',
     output: {
         filename: 'index.js',
         chunkFilename: '[name].index.js',
-        path: path.resolve(__dirname, 'public/header'),
-        publicPath: '/header/',
+        path: path.resolve(__dirname, 'public'),
         // https://webpack.js.org/configuration/output/#outputjsonpfunction
-        jsonpFunction: 'mfWebpackJsonp'
+        jsonpFunction: 'microfrontendWebpackJsonp'
     },
     module: {
         rules: [{

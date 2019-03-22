@@ -1,5 +1,5 @@
 <style>
-    .mf-header {
+    .microfrontend-header {
         position: relative;
         display: flex;
         color: #fff;
@@ -10,17 +10,17 @@
         font-size: 16px; /* Reset */
     }
 
-    .mf-header__list,
-    .mf-header__user {
+    .microfrontend-header__list,
+    .microfrontend-header__user {
         align-items: center;
         display: flex;
     }
 
-    .mf-header__list {
+    .microfrontend-header__list {
         flex-grow: 1;
     }
 
-    .mf-header__link {
+    .microfrontend-header__link {
         margin: 1px 1em -1px;
         font-size: 1em;
         line-height: 1.4;
@@ -29,16 +29,16 @@
         border-bottom: 2px solid transparent;
     }
 
-    .mf-header__link:hover {
+    .microfrontend-header__link:hover {
         border-color: #fff;
     }
 
-    .mf-header__button {
+    .microfrontend-header__button {
         position: relative;
         cursor: pointer;
     }
 
-    .mf-header__button--notification::after {
+    .microfrontend-header__button--notification::after {
         position: absolute;
         top: 3px;
         right: 3px;
@@ -50,27 +50,27 @@
         content: '';
     }
 
-    .mf-header__button svg {
+    .microfrontend-header__button svg {
         display: block;
     }
 
-    .mf-header__menu {
+    .microfrontend-header__menu {
         position: relative;
     }
 </style>
-<div class="mf-header">
-    <div class="mf-header__list">
-        <a class="mf-header__link" href="/">Page 1</a>
-        <a class="mf-header__link" href="/">Page 2</a>
-        <a class="mf-header__link" href="/">Page 3</a>
-        <a class="mf-header__link" href="/">Page 4</a>
+<div class="microfrontend-header">
+    <div class="microfrontend-header__list">
+        <a class="microfrontend-header__link" href="/">Page 1</a>
+        <a class="microfrontend-header__link" href="/">Page 2</a>
+        <a class="microfrontend-header__link" href="/">Page 3</a>
+        <a class="microfrontend-header__link" href="/">Page 4</a>
     </div>
-    <div class="mf-header__user">
+    <div class="microfrontend-header__user">
         {{#unless username}}
-            <a class="mf-header__link" href="/">Login</a>
+            <a class="microfrontend-header__link" href="/">Login</a>
         {{else}}
-            <a class="mf-header__link" href="/{{ username }}">{{ username }}</a>
-            <div class="mf-header__button">
+            <a class="microfrontend-header__link" href="/{{ username }}">{{ username }}</a>
+            <div class="microfrontend-header__button">
                 <svg viewBox="0 0 17 17" width="30" height="30">
                     <ellipse cx="4.5" cy="4.5" rx="1.2" ry="1.2" fill="currentColor"></ellipse>
                     <ellipse cx="8.5" cy="4.5" rx="1.2" ry="1.2" fill="currentColor"></ellipse>
@@ -83,13 +83,13 @@
                     <ellipse cx="12.5" cy="12.5" rx="1.2" ry="1.2" fill="currentColor"></ellipse>
                 </svg>
             </div>
-            <div class="mf-header__menu"></div>
+            <div class="microfrontend-header__menu"></div>
         {{/unless}}
     </div>
 </div>
 <script>
-    window.__MF__ = {
+    window.__MICROFRONTEND__ = {
         username: '{{ username }}'
     }
 </script>
-<script src="{{ baseUrl }}/header/index.js" defer></script>
+<script src="{{ baseUrl }}/index.js" defer></script>

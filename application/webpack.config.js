@@ -1,11 +1,10 @@
 const path = require('path');
 
 module.exports = {
-    entry: './src/application/index.js',
+    entry: './src/index.js',
     output: {
         filename: 'index.js',
         chunkFilename: '[name].index.js',
-        path: path.resolve(__dirname, 'public/application'),
-        publicPath: '/application/',
+        path: path.resolve(__dirname, 'public')
     }
 };

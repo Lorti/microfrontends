@@ -10,7 +10,7 @@ app.use(express.static('public'));
 app.get('/', function (req, res) {
     axios.get('http://localhost:3000')
         .then(response => {
-            res.render('application/index', {
+            res.render('index', {
                 header: response.data
             });
         });
@@ -22,7 +22,7 @@ app.get('/:username', function (req, res) {
     };
     axios.get(`http://localhost:3000/?vm=${encodeURIComponent(JSON.stringify(vm))}`)
         .then(response => {
-            res.render('application/index', {
+            res.render('index', {
                 header: response.data
             });
         });

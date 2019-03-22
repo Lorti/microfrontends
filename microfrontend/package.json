@@ -2,19 +2,14 @@
   "name": "microfrontends",
   "version": "1.0.0",
   "description": "A simple microfrontend architecture for explaining/showcasing the concept",
-  "main": "header.js",
   "scripts": {
-    "start": "concurrently \"npm run application:express\" \"npm run application:webpack\" \"npm run header:express\" \"npm run header:webpack\"",
-    "application:express": "nodemon application.js",
-    "application:webpack": "webpack -p --watch --config webpack.application.config.js",
-    "header:express": "nodemon header.js",
-    "header:webpack": "webpack -p --watch --config webpack.header.config.js"
+    "start": "concurrently \"npm run express\" \"npm run webpack\"",
+    "express": "nodemon server.js",
+    "webpack": "webpack -p --watch"
   },
-  "keywords": [],
   "author": "Manuel Wieser <office@manuelwieser.com>",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.18.0",
     "express": "^4.16.4",
     "hbs": "^4.0.3"
   },

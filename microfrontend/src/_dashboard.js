@@ -1,4 +1,4 @@
-import template from '../../views/header/_dashboard.hbs';
+import template from '../views/_dashboard.hbs';
 
 export default function (button, container, context) {
     let visible = false;
@@ -38,5 +38,5 @@ export default function (button, container, context) {
     }
 
     button.addEventListener('click', toggleDashboard);
-    window.addEventListener('mf:update-notifications', updateListener);
+    window.addEventListener('microfrontend:update-notifications', updateListener);
 }
