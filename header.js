@@ -7,12 +7,10 @@ app.set('view engine', 'hbs');
 app.use(express.static('public'));
 
 app.get('*', function (req, res) {
-    if (req.query.vm) {
-        const vm = JSON.parse(req.query.vm);
-        res.render('header', vm)
-    } else {
-        res.render('header');
-    }
+    const vm = req.query.vm ? JSON.parse(req.query.vm) : {};
+    res.render('header/index', Object.assign({
+        baseUrl: `http://localhost:${port}`
+    }, vm));
 });
 
 app.listen(port, () => {

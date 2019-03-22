@@ -1,4 +1,4 @@
-import template from '../views/dashboard.hbs';
+import template from '../../views/header/_dashboard.hbs';
 
 export default function (button, container, context) {
     let visible = false;

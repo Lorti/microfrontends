@@ -9,6 +9,8 @@ npm install
 npm start
 ```
 
+Open <http://localhost:4000/> in your browser, change the microfrontend's view model via <http://localhost:4000/John%20Doe> and toggle notifications.
+
 ## Contributors
 
 Manuel Wieser<br>

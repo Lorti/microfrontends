@@ -4,7 +4,7 @@ const button = document.querySelector('.mf-header__button');
 const container = document.querySelector('.mf-header__menu');
 
 if (button) {
-    import('./dashboard').then(({ default: dashboard }) => {
+    import('./_dashboard').then(({ default: dashboard }) => {
         dashboard(button, container, context);
     });
     window.addEventListener('mf-header:update-notifications', () => {
