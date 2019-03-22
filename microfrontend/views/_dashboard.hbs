@@ -25,7 +25,10 @@
     }
 </style>
 <div class="{{ NAMESPACE }}-dashboard">
-    <img class="{{ NAMESPACE }}-dashboard__avatar" src="http://i.pravatar.cc/90" alt="Avatar" width="45" height="45">
+    <img class="{{ NAMESPACE }}-dashboard__avatar" width="45" height="45"
+         src="http://i.pravatar.cc/90" alt="Avatar">
     <span>{{ username }}</span>
-    {{#if notifications}}<span class="{{ NAMESPACE }}-dashboard__notification">✉️</span>{{/if}}
+    {{#if notifications}}
+        <span class="{{ NAMESPACE }}-dashboard__notification">✉️</span>
+    {{/if}}
 </div>
