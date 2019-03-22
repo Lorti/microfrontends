@@ -1,13 +1,13 @@
-const context = window.__MICROFRONTEND__;
+const context = window[process.env.CONTEXT];
 
-const button = document.querySelector('.microfrontend-header__button');
-const container = document.querySelector('.microfrontend-header__menu');
+const button = document.querySelector(`.${process.env.NAMESPACE}-header__button`);
+const container = document.querySelector(`.${process.env.NAMESPACE}-header__menu`);
 
 if (button) {
     import('./_dashboard').then(({ default: dashboard }) => {
         dashboard(button, container, context);
     });
-    window.addEventListener('microfrontend:update-notifications', () => {
-        button.classList.toggle('microfrontend-header__button--notification');
+    window.addEventListener(`${process.env.NAMESPACE}:update-notifications`, () => {
+        button.classList.toggle(`${process.env.NAMESPACE}-header__button--notification`);
     });
 }

@@ -1,5 +1,5 @@
 <style>
-    .microfrontend-dashboard {
+    .{{ NAMESPACE }}-dashboard {
         overflow: hidden;
         position: absolute;
         display: flex;
@@ -14,18 +14,18 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     }
 
-    .microfrontend-dashboard__avatar {
+    .{{ NAMESPACE }}-dashboard__avatar {
         border-radius: 50%;
         margin-right: 1rem;
     }
 
-    .microfrontend-dashboard__notification {
+    .{{ NAMESPACE }}-dashboard__notification {
         text-align: right;
         flex-grow: 1;
     }
 </style>
-<div class="microfrontend-dashboard">
-    <img class="microfrontend-dashboard__avatar" src="http://i.pravatar.cc/90" alt="Avatar" width="45" height="45">
+<div class="{{ NAMESPACE }}-dashboard">
+    <img class="{{ NAMESPACE }}-dashboard__avatar" src="http://i.pravatar.cc/90" alt="Avatar" width="45" height="45">
     <span>{{ username }}</span>
-    {{#if notifications}}<span class="microfrontend-dashboard__notification">✉️</span>{{/if}}
+    {{#if notifications}}<span class="{{ NAMESPACE }}-dashboard__notification">✉️</span>{{/if}}
 </div>

@@ -2,10 +2,14 @@ import template from '../views/_dashboard.hbs';
 
 export default function (button, container, context) {
     let visible = false;
-    let notifications = {};
+    let notifications = false;
 
     function showDashboard() {
-        container.innerHTML = template(Object.assign({}, context, notifications));
+        const vm = {
+            NAMESPACE: process.env.NAMESPACE,
+            notifications
+        };
+        container.innerHTML = template(Object.assign({}, context, vm));
         window.addEventListener('click', toggleDashboard);
         container.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -31,12 +35,12 @@ export default function (button, container, context) {
     }
 
     function updateListener(e) {
-        notifications = e.detail;
+        notifications = e.detail.notifications;
         if (visible) {
             showDashboard();
         }
     }
 
     button.addEventListener('click', toggleDashboard);
-    window.addEventListener('microfrontend:update-notifications', updateListener);
+    window.addEventListener(`${process.env.NAMESPACE}:update-notifications`, updateListener);
 }

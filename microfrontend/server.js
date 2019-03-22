@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config();
 
 const app = express();
 
@@ -7,9 +8,7 @@ app.use(express.static('public'));
 
 app.get('*', function (req, res) {
     const vm = req.query.vm ? JSON.parse(req.query.vm) : {};
-    res.render('index', Object.assign({
-        publicPath: `http://localhost:3000`
-    }, vm));
+    res.render('index', Object.assign({}, process.env, vm));
 });
 
 app.listen(3000, () => {

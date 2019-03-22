@@ -1,3 +1,6 @@
+require('dotenv').config();
+
+const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
@@ -6,14 +9,20 @@ module.exports = {
         filename: 'index.js',
         chunkFilename: '[name].index.js',
         path: path.resolve(__dirname, 'public'),
-        publicPath: 'http://localhost:3000/',
+        publicPath: `${process.env.URL}/`,
         // https://webpack.js.org/configuration/output/#outputjsonpfunction
-        jsonpFunction: 'microfrontendWebpackJsonp'
+        jsonpFunction: `${process.env.NAMESPACE}WebpackJsonp`
     },
     module: {
         rules: [{
             test: /\.hbs$/,
             loader: 'handlebars-loader'
         }]
-    }
+    },
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env.NAMESPACE': JSON.stringify(process.env.NAMESPACE),
+            'process.env.CONTEXT': JSON.stringify(process.env.CONTEXT)
+        })
+    ]
 };
