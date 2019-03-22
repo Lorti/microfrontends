@@ -6,6 +6,7 @@ module.exports = {
         filename: 'index.js',
         chunkFilename: '[name].index.js',
         path: path.resolve(__dirname, 'public'),
+        publicPath: 'http://localhost:3000/',
         // https://webpack.js.org/configuration/output/#outputjsonpfunction
         jsonpFunction: 'microfrontendWebpackJsonp'
     },

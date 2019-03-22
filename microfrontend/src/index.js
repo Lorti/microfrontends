@@ -1,4 +1,4 @@
-const context = window.__MF__;
+const context = window.__MICROFRONTEND__;
 
 const button = document.querySelector('.microfrontend-header__button');
 const container = document.querySelector('.microfrontend-header__menu');
