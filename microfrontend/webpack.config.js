@@ -9,8 +9,11 @@ module.exports = {
         filename: 'index.js',
         chunkFilename: '[name].index.js',
         path: path.resolve(__dirname, 'public'),
+
+        // Asset URLs have to be absolute, because you'll never know on which URL the microfrontend will be served.
         publicPath: `${process.env.URL}/`,
-        // https://webpack.js.org/configuration/output/#outputjsonpfunction
+
+        // `webpackJsonp` has to be renamed, or there may be conflicts with other webpack bundles.
         jsonpFunction: `${process.env.NAMESPACE}WebpackJsonp`
     },
     module: {

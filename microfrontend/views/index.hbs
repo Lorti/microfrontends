@@ -1,3 +1,5 @@
+<!-- All HTML classes and CSS selectors are namespaced,
+     therefore no styles leak into the parent application. -->
 <style>
     .{{ NAMESPACE }}-header {
         position: relative;
@@ -87,9 +89,13 @@
         {{/unless}}
     </div>
 </div>
+<!-- The context can be used to forward the view model to
+     JavaScript modules (to prevent an additional request). -->
 <script>
     window.{{ CONTEXT }} = {
         username: '{{ username }}'
     }
 </script>
+<!-- Asset URLs have to be absolute, because you'll never
+     know on which URL the microfrontend will be served. -->
 <script src="{{ URL }}/index.js" defer></script>
