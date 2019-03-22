@@ -1,10 +1,18 @@
 const path = require('path');
 
 module.exports = {
-    entry: './src/application.js',
+    entry: './src/header.js',
     output: {
-        filename: 'application.js',
-        chunkFilename: '[name].application.js',
-        path: path.resolve(__dirname, 'public')
+        filename: 'header.js',
+        chunkFilename: '[name].header.js',
+        path: path.resolve(__dirname, 'public'),
+        // https://webpack.js.org/configuration/output/#outputjsonpfunction
+        jsonpFunction: 'mfHeaderWebpackJsonp'
+    },
+    module: {
+        rules: [{
+            test: /\.hbs$/,
+            loader: 'handlebars-loader'
+        }]
     }
 };

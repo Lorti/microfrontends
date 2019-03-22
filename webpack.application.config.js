@@ -1,16 +1,10 @@
 const path = require('path');
 
 module.exports = {
-    entry: './src/header.js',
+    entry: './src/application.js',
     output: {
-        filename: 'header.js',
-        chunkFilename: '[name].header.js',
+        filename: 'application.js',
+        chunkFilename: '[name].application.js',
         path: path.resolve(__dirname, 'public')
-    },
-    module: {
-        rules: [{
-            test: /\.hbs$/,
-            loader: 'handlebars-loader'
-        }]
     }
 };
