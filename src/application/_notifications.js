@@ -2,7 +2,7 @@ let notifications = false;
 
 export default function() {
     notifications = !notifications;
-    const event = new CustomEvent('mf-header:update-notifications', {
+    const event = new CustomEvent('mf:update-notifications', {
         detail: {
             notifications
         }

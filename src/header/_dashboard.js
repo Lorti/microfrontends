@@ -38,5 +38,5 @@ export default function (button, container, context) {
     }
 
     button.addEventListener('click', toggleDashboard);
-    window.addEventListener('mf-header:update-notifications', updateListener);
+    window.addEventListener('mf:update-notifications', updateListener);
 }

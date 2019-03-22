@@ -8,7 +8,7 @@ module.exports = {
         path: path.resolve(__dirname, 'public/header'),
         publicPath: '/header/',
         // https://webpack.js.org/configuration/output/#outputjsonpfunction
-        jsonpFunction: 'mfHeaderWebpackJsonp'
+        jsonpFunction: 'mfWebpackJsonp'
     },
     module: {
         rules: [{
