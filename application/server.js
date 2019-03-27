@@ -15,6 +15,10 @@ app.get('/', function (req, res) {
         });
 });
 
+app.get(/spa/, function (req, res) {
+  res.render('spa');
+});
+
 app.get('/:username', function (req, res) {
     const vm = {
         username: req.params.username

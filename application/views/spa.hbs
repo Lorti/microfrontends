@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <title>Microfrontends</title>
+</head>
+<body>
+    <div id="app">
+        <div v-html="header"></div>
+        <h1>{{ title }}</h1>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                title: 'Microfrontends',
+                header: '',
+            },
+            async created() {
+                const response = await fetch('http://localhost:3000', {
+                    headers: {
+                        'Accept': 'application/json',
+                    }
+                });
+                const json = await response.json();
+                this.header = json.html;
+                if (json.scripts) {
+                    json.scripts.forEach(script => {
+                        const element = document.createElement('script');
+                        element.src = script;
+                        document.head.append(element);
+                    })
+                }
+                if (json.code) {
+                    eval(json.code);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
