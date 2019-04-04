@@ -15,8 +15,8 @@ app.get('/', function (req, res) {
         });
 });
 
-app.get(/spa/, function (req, res) {
-  res.render('spa');
+app.get(/single-page-application/, function (req, res) {
+  res.render('single-page-application');
 });
 
 app.get('/:username', function (req, res) {
