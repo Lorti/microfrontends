@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <title>Microfrontends</title>
+    <style>
+        html {
+            font-family: 'Roboto', sans-serif;
+        }
+        .application {
+            margin: 1rem;
+        }
+        .application h1 {
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div v-html="microfrontends.header"></div>
+        <main class="application">
+            <h1>{{ title }}</h1>
+            <button @click="toggleNotifications">Toggle notifications</button>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                title: 'Microfrontends',
+                notifications: false,
+                microfrontends: {
+                    header: null,
+                }
+            },
+            async created() {
+                const vm = encodeURIComponent(JSON.stringify({ username: 'John Doe' }));
+                const response = await fetch(`http://localhost:3000?vm=${vm}`, {
+                    headers: {
+                        'Accept': 'application/json',
+                    }
+                });
+                const json = await response.json();
+                this.microfrontends.header = json.html;
+                if (json.code) {
+                    eval(json.code);
+                }
+                if (json.scripts) {
+                    json.scripts.forEach(script => {
+                        const element = document.createElement('script');
+                        element.src = script;
+                        document.head.append(element);
+                    })
+                }
+            },
+            methods: {
+                toggleNotifications() {
+                    this.notifications = !this.notifications;
+                    const event = new CustomEvent('microfrontend:update-notifications', {
+                        detail: {
+                            notifications: this.notifications
+                        }
+                    });
+                    window.dispatchEvent(event);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -15,6 +15,10 @@ app.get('/', function (req, res) {
         });
 });
 
+app.get(/single-page-application/, function (req, res) {
+  res.render('single-page-application');
+});
+
 app.get('/:username', function (req, res) {
     const vm = {
         username: req.params.username
