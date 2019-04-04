@@ -2,6 +2,8 @@
 
 A simple microfrontend architecture for explaining/showcasing the concept
 
+![](microfrontends.png)
+
 ## Setup
 
 ### Microfrontend
